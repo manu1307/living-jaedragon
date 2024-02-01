@@ -8,7 +8,7 @@ function Share() {
       onClick={() => {
         if (navigator.clipboard) {
           navigator.clipboard
-            .writeText(window && window.location.href)
+            .writeText("https://shopping-jaedragon.vercel.app/")
             .then(() =>
               alert("링크가 복사되었습니다. 붙여넣기로 공유해보세요.")
             )
