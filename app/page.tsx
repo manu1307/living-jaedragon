@@ -1,5 +1,6 @@
 import CardWrapper from "@/components/CardWrapper";
 import Receipt from "@/components/Receipt";
+import Share from "@/components/Share";
 import TotalAsset from "@/components/TotalAssset";
 import Image from "next/image";
 import NumberFormat from "react-number-format";
@@ -16,12 +17,17 @@ export default function Home() {
             className="rounded-full"
           />
         </div>
-        <div className="my-3 font-semibold text-2xl">이재용 몰래 쇼핑하기</div>
+        <div className="my-3 font-semibold text-2xl">
+          재드래곤 몰래 쇼핑하기
+        </div>
       </div>
 
       <TotalAsset />
       <CardWrapper />
-      <Receipt />
+      <div id="receipt">
+        <Receipt />
+      </div>
+      <Share />
     </main>
   );
 }

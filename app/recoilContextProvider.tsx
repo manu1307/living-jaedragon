@@ -7,12 +7,6 @@ export const totalAssetState = atom({
   default: 12000000000000,
 });
 
-type ReceiptType = {
-  id: number;
-  item: string;
-  amount: number;
-  price: number;
-};
 export const ReceiptState = atom<number[]>({
   key: "receipt",
   default: new Array(cartData.length).fill(0),

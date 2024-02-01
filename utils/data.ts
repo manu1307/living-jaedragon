@@ -5,8 +5,9 @@ export const cartData: { item: string; price: number; imageUrl: string }[] = [
   { item: "영화 티켓", price: 15000, imageUrl: "/items/movieTicket.png" },
   { item: "황금 올리브 한 마리", price: 20000, imageUrl: "/items/olive.jpeg" },
   { item: "크록스", price: 49000, imageUrl: "/items/crocs.jpeg" },
-  { item: "랍스타 뷔페", price: 110000, imageUrl: "/items/lobster.jpeg" },
   { item: "에어 조던", price: 139000, imageUrl: "/items/airjordan.jpeg" },
+  { item: "신라호텔 뷔페", price: 185000, imageUrl: "/items/shilla.jpeg" },
+
   {
     item: "디즈니플러스 1년 구독",
     price: 166800,

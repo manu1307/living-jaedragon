@@ -32,7 +32,7 @@ function ItemCard({ id, imageUrl, item, price }: ItemCardProps) {
       <div className="text-lg font-normal">{formattedPrice} 원</div>
       <div className="flex justify-around w-full">
         <button
-          className="px-4 py-2 mt-4 md:w-1/4 text-white bg-gradient-to-l from-pink-500 to-red-300 rounded-md"
+          className="px-4 py-2 mt-4 w-1/4  text-white bg-gradient-to-t from-[#ff7878] to-[#ff7575] rounded-md"
           onClick={() => {
             if (count > 0) {
               setAsset(asset + price);
@@ -43,7 +43,7 @@ function ItemCard({ id, imageUrl, item, price }: ItemCardProps) {
                 return temp;
               });
             } else {
-              alert("이미 다 팔았습니다");
+              alert("이미 다 팔았습니다!");
             }
           }}
         >
@@ -53,7 +53,7 @@ function ItemCard({ id, imageUrl, item, price }: ItemCardProps) {
           {count}
         </div>
         <button
-          className="px-4 py-2 mt-4 md:w-1/4 text-white bg-gradient-to-t from-[#1428A0] to-[#2940c3] rounded-md"
+          className="px-4 py-2 mt-4 w-1/4  text-white bg-gradient-to-t from-[#1428A0] to-[#2940c3] rounded-md"
           onClick={() => {
             if (asset >= price) {
               setAsset(asset - price);
@@ -64,11 +64,11 @@ function ItemCard({ id, imageUrl, item, price }: ItemCardProps) {
                 return temp;
               });
             } else {
-              alert("잔고가 부족합니다.");
+              alert("잔액이 부족합니다.");
             }
           }}
         >
-          구매하기
+          구매
         </button>
       </div>
     </div>
