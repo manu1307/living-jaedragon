@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "재드래곤 몰래 쇼핑하기",
   description:
-    "어느날 갑자기 집 앞에 도착한 재드래곤의 카드! 쇼핑을 한 번 즐겨볼까요? ",
+    "재드래곤의 카드가 우리 집 앞에 배송왔다고? 쇼핑을 한 번 즐겨볼까요? ",
   openGraph: {
     siteName: "재드래곤 몰래 쇼핑하기",
     images: [
