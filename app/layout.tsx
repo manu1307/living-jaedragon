@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { GetServerSideProps, Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import RecoilContextProvider from "./recoilContextProvider";
@@ -34,7 +34,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log(GA_MEASUREMENT_ID);
   return (
     <html lang="kr">
       <body className={inter.className}>
