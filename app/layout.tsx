@@ -26,6 +26,7 @@ export const metadata: Metadata = {
         height: 1600,
       },
     ],
+    url: "https://shopping-jaedragon.vercel.app/",
   },
 };
 
