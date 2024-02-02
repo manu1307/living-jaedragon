@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import RecoilContextProvider from "./recoilContextProvider";
 import Head from "next/head";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_MEASUREMENT_ID!;
 
@@ -36,13 +35,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log(GA_MEASUREMENT_ID);
   return (
     <html lang="kr">
+      <Head>
+        <Script
+          strategy="lazyOnload"
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        ></Script>
+        <Script strategy="lazyOnload">
+          {`
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${GA_MEASUREMENT_ID}');
+  `}
+        </Script>
+      </Head>
       <body className={inter.className}>
         <RecoilContextProvider>{children}</RecoilContextProvider>
       </body>
-      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>
   );
 }
