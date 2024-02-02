@@ -4,15 +4,16 @@ import Script from "next/script";
 import "./globals.css";
 import RecoilContextProvider from "./recoilContextProvider";
 import Head from "next/head";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_MEASUREMENT_ID;
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_MEASUREMENT_ID!;
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shopping-jaedragon.vercel.app/"),
   title: "재드래곤 몰래 쇼핑하기",
-  description:
-    "재드래곤의 카드가 우리 집 앞에 배송왔다고?",
+  description: "재드래곤의 카드가 우리 집 앞에 배송왔다고?",
   openGraph: {
     siteName: "재드래곤 몰래 쇼핑하기",
     images: [
@@ -37,27 +38,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}', {
-            page_path: window.location.pathname,
-          });
-        `,
-          }}
-        />
-      </Head>
       <body className={inter.className}>
         <RecoilContextProvider>{children}</RecoilContextProvider>
       </body>
+      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>
   );
 }
