@@ -3,18 +3,45 @@
 import { ReceiptState } from "@/app/recoilContextProvider";
 import { cartData } from "@/utils/data";
 import { numberToKorean } from "@/utils/numberToKorean";
+import { useRef } from "react";
 import { useRecoilValue } from "recoil";
+import html2canvas from "html2canvas";
+import saveAs from "file-saver";
 
 function Receipt() {
   const receiptData = useRecoilValue(ReceiptState);
   const sum = receiptData.reduce((acc, cur) => acc + cur, 0);
   let total = 0;
+
   for (let i = 0; i < receiptData.length; i++) {
     total += receiptData[i] * cartData[i].price;
   }
+  const divRef = useRef<HTMLDivElement>(null);
+
+  const handleDownload = async () => {
+    if (!divRef.current) return;
+
+    try {
+      const div = divRef.current;
+
+      const canvas = await html2canvas(div, { scale: 2 });
+
+      canvas.toBlob((blob) => {
+        if (blob !== null) {
+          saveAs(blob, "result.png");
+        }
+      });
+    } catch (error) {
+      console.error("Error converting div to image:", error);
+    }
+  };
+
   return (
     <>
-      <div className="py-4 px-8 border-2 border-gray-300 rounded-md bg-white my-4 flex justify-center w-full">
+      <div
+        ref={divRef}
+        className="py-4 px-8 border-2 border-gray-300 rounded-md bg-white my-4 flex justify-center w-full"
+      >
         <div className="flex flex-col items-center md:w-[480px] w-full">
           <div className="font-bold text-3xl my-4">영수증</div>
           {sum > 0 && (
@@ -49,6 +76,17 @@ function Receipt() {
           )}
         </div>
       </div>
+      {sum > 0 && (
+        <button
+          className="flex justify-center items-center w-full h-12 my-8 text-white bg-gradient-to-t from-[#1428A0] to-[#2940c3] rounded-md cursor-pointer"
+          onClick={() => {
+            handleDownload();
+            alert("영수증이 다운로드 되었습니다.");
+          }}
+        >
+          영수증 출력하기
+        </button>
+      )}
     </>
   );
 }

@@ -2,6 +2,8 @@ import { cartData } from "@/utils/data";
 import Image from "next/image";
 import React from "react";
 import ItemCard from "./ItemCard";
+import { numberToKorean } from "@/utils/numberToKorean";
+import DividendCard from "./DividendCard";
 
 function CardWrapper() {
   return (
@@ -10,7 +12,7 @@ function CardWrapper() {
         return (
           <div key={i}>
             <ItemCard
-            id={i}
+              id={i}
               imageUrl={item.imageUrl}
               item={item.item}
               price={item.price}
@@ -18,6 +20,7 @@ function CardWrapper() {
           </div>
         );
       })}
+      <DividendCard />
     </div>
   );
 }

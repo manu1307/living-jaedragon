@@ -10,13 +10,15 @@ function Share() {
           navigator.clipboard
             .writeText("https://shopping-jaedragon.vercel.app/")
             .then(() =>
-              alert("링크가 복사되었습니다. 붙여넣기로 공유해보세요.")
+              alert(
+                "링크가 복사되었습니다. 붙여넣기로 카드를 다른 사람한테도 주세요."
+              )
             )
             .catch(() => alert("링크 복사에 실패했습니다."));
         }
       }}
     >
-      공유하기
+      카드 다른 사람과 공유하기
     </div>
   );
 }
