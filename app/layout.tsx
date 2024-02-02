@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import RecoilContextProvider from "./recoilContextProvider";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import Head from "next/head";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_MEASUREMENT_ID!;
 
@@ -36,9 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr">
+      <Head>
+        <GoogleAnalytics ga_id={GA_MEASUREMENT_ID} />
+      </Head>
       <body className={inter.className}>
         <RecoilContextProvider>{children}</RecoilContextProvider>
-        <GoogleAnalytics ga_id={GA_MEASUREMENT_ID} />
       </body>
     </html>
   );

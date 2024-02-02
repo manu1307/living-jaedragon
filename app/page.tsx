@@ -3,7 +3,6 @@ import Receipt from "@/components/Receipt";
 import Share from "@/components/Share";
 import TotalAsset from "@/components/TotalAssset";
 import Image from "next/image";
-import NumberFormat from "react-number-format";
 
 export default function Home() {
   return (
