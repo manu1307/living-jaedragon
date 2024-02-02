@@ -36,8 +36,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log(GA_MEASUREMENT_ID);
   return (
-    <html lang="en">
+    <html lang="kr">
       <body className={inter.className}>
         <RecoilContextProvider>{children}</RecoilContextProvider>
       </body>

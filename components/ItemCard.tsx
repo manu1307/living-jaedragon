@@ -23,6 +23,7 @@ function ItemCard({ id, imageUrl, item, price }: ItemCardProps) {
           src={imageUrl}
           fill={true}
           alt={item}
+          sizes="100%"
           className="rounded-md object-contain"
         />
       </div>
