@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import RecoilContextProvider from "./recoilContextProvider";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
-import Head from "next/head";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_MEASUREMENT_ID!;
 
@@ -35,14 +34,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log(GA_MEASUREMENT_ID);
   return (
     <html lang="kr">
-      <Head>
-        <GoogleAnalytics ga_id={GA_MEASUREMENT_ID} />
-      </Head>
       <body className={inter.className}>
         <RecoilContextProvider>{children}</RecoilContextProvider>
       </body>
+      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>
   );
 }
