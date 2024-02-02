@@ -17,6 +17,7 @@ export default function Home() {
           <Image
             src={"/jaeDragon.png"}
             fill={true}
+            sizes="100%"
             alt="jaeDragon"
             className="rounded-full"
           />
