@@ -7,8 +7,10 @@ import { useRef } from "react";
 import { useRecoilValue } from "recoil";
 import html2canvas from "html2canvas";
 import saveAs from "file-saver";
+import { useRouter } from "next/navigation";
 
-function Receipt() {
+function ShoppingCart() {
+  const router = useRouter();
   const receiptData = useRecoilValue(ReceiptState);
   const sum = receiptData.reduce((acc, cur) => acc + cur, 0);
   let total = 0;
@@ -43,7 +45,7 @@ function Receipt() {
         className="py-4 px-8 border-2 border-gray-300 rounded-md bg-white my-4 flex justify-center w-full"
       >
         <div className="flex flex-col items-center md:w-[480px] w-full">
-          <div className="font-bold text-3xl my-4">영수증</div>
+          <div className="font-bold text-3xl my-4">장바구니</div>
           {sum > 0 && (
             <>
               {receiptData.map((item, index) => {
@@ -80,15 +82,15 @@ function Receipt() {
         <button
           className="flex justify-center items-center w-full h-12 my-8 text-white bg-gradient-to-t from-[#1428A0] to-[#2940c3] rounded-md cursor-pointer"
           onClick={() => {
-            handleDownload();
-            alert("영수증이 다운로드 되었습니다.");
+            alert("[삼성페이] 결제 중입니다...");
+            router.push("/receipt");
           }}
         >
-          영수증 출력하기
+          결제하기
         </button>
       )}
     </>
   );
 }
 
-export default Receipt;
+export default ShoppingCart;

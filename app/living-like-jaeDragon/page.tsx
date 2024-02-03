@@ -1,5 +1,5 @@
 import CardWrapper from "@/components/CardWrapper";
-import Receipt from "@/components/Receipt";
+import Receipt from "@/components/ShoppingCart";
 import Share from "@/components/Share";
 import TotalAsset from "@/components/TotalAssset";
 import Image from "next/image";

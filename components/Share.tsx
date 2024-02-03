@@ -4,7 +4,7 @@ import React from "react";
 function Share() {
   return (
     <div
-      className="flex justify-center items-center w-full h-12 my-8 text-white bg-gradient-to-t from-[#1428A0] to-[#2940c3] rounded-md cursor-pointer"
+      className="flex justify-center items-center w-full h-12 md:my-8 my-4 text-white bg-gradient-to-t from-[#1428A0] to-[#2940c3] rounded-md cursor-pointer"
       onClick={() => {
         if (navigator.clipboard) {
           navigator.clipboard
@@ -18,7 +18,7 @@ function Share() {
         }
       }}
     >
-      카드 다른 사람과 공유하기
+      카드 다른 사람한테도 주기
     </div>
   );
 }
