@@ -28,11 +28,11 @@ function Page() {
   return (
     <>
       {mounted && (
-        <main className="container min-h-screen md:p-16 p-2 pt-8 m-auto">
+        <main className="container min-h-screen md:p-16 p-2 pt-2 m-auto">
           <div className="py-4 px-8 border-2 border-gray-300 rounded-md bg-white my-4 flex justify-center w-full">
             <div className="flex flex-col items-center md:w-[480px] w-full">
               <div className="font-bold text-3xl my-4 text-center">영수증</div>
-              <div className="w-full md:min-h-[calc(100vh-12rem)] min-h-[calc(100vh-10rem)]">
+              <div className="w-full md:min-h-[calc(100vh-12rem)] min-h-[calc(100vh-15rem)] overflow-scroll scrollbar-hide">
                 {sum > 0 && (
                   <div className="flex flex-col justify-between h-full">
                     <div>
