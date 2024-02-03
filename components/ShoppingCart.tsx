@@ -3,7 +3,7 @@
 import { ReceiptState } from "@/app/recoilContextProvider";
 import { cartData } from "@/utils/data";
 import { numberToKorean } from "@/utils/numberToKorean";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRecoilValue } from "recoil";
 import html2canvas from "html2canvas";
 import saveAs from "file-saver";
@@ -12,6 +12,11 @@ import { useRouter } from "next/navigation";
 function ShoppingCart() {
   const router = useRouter();
   const receiptData = useRecoilValue(ReceiptState);
+
+  const [mounted, setMounted] = useState<boolean>(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const sum = receiptData.reduce((acc, cur) => acc + cur, 0);
   let total = 0;
 
@@ -83,7 +88,7 @@ function ShoppingCart() {
           className="flex justify-center items-center w-full h-12 my-8 text-white bg-gradient-to-t from-[#1428A0] to-[#2940c3] rounded-md cursor-pointer"
           onClick={() => {
             alert("[삼성페이] 결제 중입니다...");
-            router.push("/receipt");
+            router.replace("/receipt");
           }}
         >
           결제하기
