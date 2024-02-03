@@ -80,7 +80,7 @@ function Page() {
             onClick={() => {
               setReceiptData(() => Array(cartData.length).fill(0));
               setAsset(12000000000000);
-              router.push("/");
+              router.replace("/");
             }}
           >
             좀 아쉬운데 쇼핑 다시할까?
