@@ -8,6 +8,7 @@ import DividendCard from "./DividendCard";
 function CardWrapper() {
   return (
     <div className="grid lg:grid-cols-3 grid-cols-1  gap-4 content-center ">
+      
       {cartData.map((item, i) => {
         return (
           <div key={i}>

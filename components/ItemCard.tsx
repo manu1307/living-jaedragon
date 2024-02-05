@@ -20,15 +20,13 @@ function ItemCard({ id, imageUrl, item, price }: ItemCardProps) {
   return (
     <div className="flex flex-col items-center justify-center p-4 border-2 border-gray-300 rounded-md bg-white">
       <div className="relative w-64 h-32 rounded-lg">
-        <Suspense fallback={<ImageLoader />}>
-          <Image
-            src={imageUrl}
-            fill={true}
-            alt={item}
-            sizes="100%"
-            className="rounded-md object-contain"
-          />
-        </Suspense>
+        <Image
+          src={imageUrl}
+          fill={true}
+          alt={item}
+          sizes="100%"
+          className="rounded-md object-contain"
+        />
       </div>
       <div className="font-bold text-2xl break-keep text-center my-2 ">
         {item}

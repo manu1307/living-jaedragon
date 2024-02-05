@@ -1,8 +1,9 @@
 import CardWrapper from "@/components/CardWrapper";
-import Share from "@/components/Share";
 import TotalAsset from "@/components/TotalAssset";
 import Image from "next/image";
 import ShoppingCart from "@/components/ShoppingCart";
+import { Suspense } from "react";
+import ImageLoader from "@/components/ImageLoader";
 
 export default function Home() {
   return (
@@ -25,11 +26,12 @@ export default function Home() {
       </div>
 
       <TotalAsset />
-      <CardWrapper />
+      <Suspense fallback={<ImageLoader />}>
+        <CardWrapper />
+      </Suspense>
       <div id="receipt">
         <ShoppingCart />
       </div>
-  
     </main>
   );
 }
